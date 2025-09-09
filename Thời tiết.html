@@ -1,0 +1,401 @@
+<!--
+This file/page:
+    Thời tiết.html, 
+    style.css, astronomy.css, cubic-bezier.css, design.css, modal.css, 
+    weather.js, location.js, astronomy.js, search.js, __cookie.js 
+has been written by Minh Nhân;
+(C) Minh Nhân
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Minh Nhân">
+    <meta name="theme-color" content="#808080">
+
+    <meta name="referrer" content="no-referrer">
+
+    <!--<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>-->
+    <title>Thời tiết</title>
+    <!--
+    <link rel="shortcut icon" href="https://openweathermap.org/img/w/01d.png" type="image/x-icon">
+    <link rel="shortcut icon" href="https://openweathermap.org/img/w/01n.png" type="image/x-icon">
+    -->
+    <link rel="icon" type="image/png" href="./Thời tiết/data/weather-icons/01d.png">
+    <link rel="shortcut icon" type="image/png" href="./Thời tiết/data/weather-icons/01d.png">
+    <link rel="stylesheet" type="text/css" href="Thời tiết/data/css/style.css">
+    <link rel="stylesheet" type="text/css" href="Thời tiết/data/css/modal.css">
+
+    <link rel="stylesheet" type="text/css" href="Thời tiết/data/css/design.css">
+    <link rel="stylesheet" type="text/css" href="Thời tiết/data/css/cubic-bezier.css">
+    
+    <link rel="stylesheet" type="text/css" href="Thời tiết/data/css/scss/input_group.scss">
+    <!---->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="Thời tiết/data/css/input-group.css">
+
+    <link rel="stylesheet" type="text/css" href="Thời tiết/data/css/astronomy.css">
+    <link rel="stylesheet" type="text/css" href="Thời tiết/data/css/screen.css">
+    <!--
+    <script src="Thời tiết/React/react.development.js" crossorigin="anonymous"></script> 
+    <script src="Thời tiết/React/react-dom.development.js" crossorigin="anonymous"></script> 
+    <script src="Thời tiết/React/babel.min.js" crossorigin="anonymous"></script>
+    -->
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script> 
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script> 
+    <!-- Include Babel standalone to transpile JSX in the browser --> 
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- end of Header -->
+</head>
+<body id="body" link="blue" vlink="purple" alink="orange">
+    <!-- Rain video -->
+    <video autoplay loop id="rainVideo" muted="false" style="display: none;">
+        <source src="Thời tiết/rainwsound.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <!--Night image-->
+    <div class="background" id="background"></div>
+    
+    <div id="newBody">
+        <p id="time" style="display:block;"></p>
+        <marquee direction="right" id="weather_today">
+            <b id="w_today"></b>
+        </marquee>
+        
+        <div class="input-group mb-3" id="input-group" data-input="input">
+            <div id="input-group-prepend">
+                <span class="search1" id="search1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                </svg></span>
+            </div>
+            <div id="find-search"><input type="search" class="form-control" placeholder="Tìm kiếm" class="find1" id="find" aria-label="Default" aria-describedby="inputGroup-sizing-default"></div>
+        </div>
+        <!-- Search data -->
+        <div class="searchdata" id="searchdata" style="display:none;margin-top: 2cm;margin-left: 10cm;" data-search="search-data">
+
+        </div>
+        <button id="top_button" title="Lướt lên trên cùng"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z"/>
+        </svg></button>
+        <hr class="hr_today">
+        <div id="snackbar">
+            
+        </div>
+        <div id="results">
+            <p id="search_data" data-325b67></p>
+        </div>
+        <div id="weather" colspan="100">
+            <nav></nav>
+            <section id="weather-data">
+                <div class="container" id="container" data-type="weather">
+                    <p style="display: block;">Tìm kiếm thời tiết: </p>
+                    <hr>
+                    <input type="search" id="locationInput" placeholder="Nhập một tên thành phố hoặc quận huyện" style="display: inline-block;">
+                    <button id="searchButton"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                      </svg> Tìm kiếm</button>
+                    <button id="location_button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
+                        </svg>
+                    </button><!--<hr>-->
+                    <details id="lonlat_search" open>
+                        <summary>Tìm kiếm theo tọa độ</summary>
+                        <div class="lonlat-search">
+                            <input type="text" id="latInput" placeholder="Nhập vĩ độ" style="display: inline-block;">
+                            <input type="text" id="lonInput" placeholder="Nhập kinh độ" style="display: inline-block;">
+                            <button id="lonlat_button" style="display: inline-block;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                            </svg> Tìm kiếm</button>
+                        </div>
+                    </details>
+                
+                <div class="weather-info" id="weatherin">
+                    <h2 id="location"></h2>
+                    <button id="comment" title="Thấy thời tiết khác?">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left-fill" viewBox="0 0 16 16">
+                            <path d="M2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                        </svg>
+                        Thấy thời tiết khác?
+                    </button>
+
+                    <p id="datetime"></p>
+                    <h5 id="description"></h5>
+                    <div id="icon"><img id="wicon" src="" alt="Ảnh thời tiết"></div>
+                    <h4 id="temperature"></h4>
+                    <!--<div id="humidity_icon"><img id="humidity_ico" src=""></div>-->
+                    <p id="cloud"></p>
+                    <p id="rain"></p>
+                    <p id="visibility"></p>
+                    <p id="windspeed"></p>
+                    <p id="humidity"></p>
+                    <p id="snow"></p>
+                    <p id="sunrise"></p><p id="minmaxtemp"></p>
+                    <p id="pressure"></p>
+                    <p id="sealevel"></p>
+                    </div>
+                </div>
+                
+            </section>
+            
+        </div>
+        <!-- RSS feeds -->
+        
+        <!---->
+        <section id="forecast1">
+            <!-- To give a section id named "forecast" -->
+            <div class="forecast" id="forecast" data-type="forecast">
+                <div id="rain-img" style="display:none;"></div>
+                <div class="fc1" id="fc1">
+                    <h1>Dự báo thời tiết: </h1>
+                    <!--<hr>-->
+                    <p id="thanhpho"></p>
+                    <h4 id="time7"></h4>
+                    <h5 id="des1"></h5><div id="icon1"><img id="forecasticon" src="" alt="Ảnh dự báo thời tiết"></div>
+                    <h4 id="tempfc1"></h4>
+                    <p id="cloudy"></p>
+                    <p id="rainy"></p>
+                    <p id="notes">* Thông tin thời tiết/dự báo thời tiết có thể không chính xác.</p>
+                </div>
+            </div>
+        </section>
+        <button id="share" class="share" data-input="share-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-share" viewBox="0 0 16 16">
+                <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"/>
+            </svg>
+            Chia sẻ
+        </button>
+        <hr>
+        <p id="notes" style="text-align: center;">* Kết quả được lấy từ dữ liệu của website.</p>
+        <section id="air">
+            <div class="air" id="air">
+                <h1>Không khí: <button id="ask">?</button></h1>
+                <hr>
+                <p id="air_lonlat"></p>
+                <p id="update-time"></p>
+                <div id="aqi_bcolor">
+                    <h3 id="air_aqi"></h3>
+                    <p id="co"></p><p id="no"></p><p id="no2"></p>
+                    <p id="o3"></p><p id="so2"></p><p id="pm2_5"></p>
+                    <p id="pm10"></p><p id="nh3"></p>
+                </div>
+            </div>
+        </section>
+        <br>
+        <section id="maps">
+            <div class="map" id="map" style="display:inline-block;" data-type="maps">
+                <h1>Bản đồ</h1>
+                <hr>
+                Bản đồ về tốc độ gió (thế giới).<br>
+                <img src="" id="map_img" alt="Bản đồ về tốc độ gió.">
+            </div>
+        </section>
+        <br>
+        <section id="health1">
+            <div class="health" id="health">
+                <div class="rain2">
+                    <h1>Sức khỏe:</h1>
+                    <hr>
+                    <h4 id="need"></h4>
+                    <h4 id="vision"></h4>
+                    <p id="driving"></p>
+                </div>
+            </div>
+        </section>
+        <br>
+        
+        <div id="others" style="display:block;">
+            <section id="astronomy_events1">
+                <div id="astronomy_events" class="astronomy_events" data-type="astronomy">
+                    <p id="timenow" style="display:block;"></p>
+                    <div id="as-lm" class="clearfix" style="display:inline-block;width:455.328px;"><div id="lm-0" class="mtt as-lm-period as-night" id="as-night" style="width:18.996%;" title="" data-mtt="Night: 12:00 SA - 4:33 SA, 4 hours, 34 minutes"></div><div id="lm-1" class="mtt as-lm-period as-astronomical-twilight" id="as-astronomical-twilight" style="width:1.748%;" title="" data-mtt="Astro. Twilight: 4:33 SA - 4:58 SA, 25 minutes"></div><div id="lm-2" class="mtt as-lm-period as-nautical-twilight" id="as-nautical-twilight" style="width:1.755%;" title="" data-mtt="Nautical Twilight: 4:58 SA - 5:23 SA, 25 minutes"></div><div id="lm-3" class="mtt as-lm-period as-civil-twilight" id="as-civil-twilight" style="width:1.517%;" title="" data-mtt="Civil Twilight: 5:23 SA - 5:45 SA, 22 minutes"></div><div id="lm-4" class="mtt as-lm-period as-daylight" id="as-daylight" style="width:48.741%;" title="" data-mtt="Daylight: 5:45 SA - 5:27 CH, 11 hours, 42 minutes"></div><div id="lm-5" class="mtt as-lm-period as-civil-twilight" id="as-civil-twilight" style="width:1.519%;" title="" data-mtt="Civil Twilight: 5:27 CH - 5:49 CH, 22 minutes"></div><div id="lm-6" class="mtt as-lm-period as-nautical-twilight" id="as-nautical-twilight" style="width:1.756%;" title="" data-mtt="Nautical Twilight: 5:49 CH - 6:14 CH, 25 minutes"></div><div id="lm-7" class="mtt as-lm-period as-astronomical-twilight" id="as-astronomical-twilight" style="width:1.749%;" title="" data-mtt="Astro. Twilight: 6:14 CH - 6:40 CH, 25 minutes"></div><div id="lm-8" class="mtt as-lm-period as-night" style="width:22.220%;" title="" id="as-night" data-mtt="Night: 6:40 CH - 11:59 CH, 5 hours, 20 minutes"></div></div>
+                    <div id="lm-tm" class="mgb25 clearfix mobhide" style="color:black;"><div class="one columns">12 SA</div><div class="one columns">2 SA</div><div class="one columns">4 SA</div><div class="one columns">6 SA</div><div class="one columns">8 SA</div><div class="one columns">10 SA</div><div class="one columns">12 CH</div><div class="one columns">2 CH</div><div class="one columns">4 CH</div><div class="one columns">6 CH</div><div class="one columns">8 CH</div><div class="one columns">10 CH</div></div>
+                    <br>
+                    
+                    <details id="detials-tag">
+                        <summary style="color:black">
+                            Kí hiệu:
+                        </summary>
+                        <table id="lm-key" class="va-m fw" style="color:black;"><tbody><tr id="lm-leg-0" class=""><th><span class="c-key as-night"></span> Night</th><td class="tr">12:00 SA – 4:33 SA</td></tr><tr id="lm-leg-1" class=""><th><span class="c-key as-astronomical-twilight"></span> Astro. Twilight</th><td class="tr">4:33 SA – 4:58 SA</td></tr><tr id="lm-leg-2"><th><span class="c-key as-nautical-twilight"></span> Nautical Twilight</th><td class="tr">4:58 SA – 5:24 SA</td></tr><tr id="lm-leg-3"><th><span class="c-key as-civil-twilight"></span> Civil Twilight</th><td class="tr">5:24 SA – 5:46 SA</td></tr><tr id="lm-leg-4" class=""><th><span class="c-key as-daylight"></span> Daylight</th><td class="tr">5:46 SA – 5:27 CH</td></tr><tr id="lm-leg-5"><th><span class="c-key as-civil-twilight"></span> Civil Twilight</th><td class="tr">5:27 CH – 5:49 CH</td></tr><tr id="lm-leg-6"><th><span class="c-key as-nautical-twilight"></span> Nautical Twilight</th><td class="tr">5:49 CH – 6:14 CH</td></tr><tr id="lm-leg-7"><th><span class="c-key as-astronomical-twilight"></span> Astro. Twilight</th><td class="tr">6:14 CH – 6:39 CH</td></tr><tr id="lm-leg-8" class=""><th><span class="c-key as-night"></span> Night</th><td class="tr">6:39 CH – 11:59 CH</td></tr>
+                        <br>
+                        <tr id="lm-leg-9"><th><span class="c-key as-now" style="border:1px solid red;"></span>Thời điểm hiện tại</th><td class="tr"></td></tr></tbody></table>
+                    </details>
+                </div>
+            </section>
+        
+            <!-- TYPING TEST DIV -->
+            <div id="typing-test" data-type="typing test" data-typed="default" class="typing-test" style="display:block;">
+                <h4>Đo tốc độ gõ phím</h4>
+                <button id="start">Bắt đầu</button>
+                <span id="close_type" style="display:none;">&times;</span>
+                <p id="text-to-type" style="display:block;"></p>
+                <textarea name="text-type" id="text-type" placeholder="Nhập..."></textarea>
+                <p id="result"></p>
+            </div>
+            <!-- SHARE SCREEN DIV -->
+            <div id="share-screen" class="share-screen" data-type="share screen" style="display:inline-block;">
+                <h4 id="title1">Chia sẻ màn hình</h4>
+                <video autoplay id="share-screen-video"></video>
+                <br>
+                <button id="start-share">Bắt đầu chia sẻ</button>
+            </div>
+            <!-- COUNTDOWN DIV -->
+            <div id="countdown" class="countdown" data-type="count down">
+                <p id="countdown_title1"></p>
+                <button id="countdown_click">Nhấn vào đây để xem đếm ngược</button>
+            </div>
+        </div>
+        <footer>
+        </footer>
+        <button id="refresh" title="Tải lại thời tiết">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.3333 10C18.3333 5.39763 14.6024 1.66667 10 1.66667C9.73193 1.66667 9.46681 1.67932 9.20521 1.70407C8.75153 1.747 8.33333 1.40725 8.33333 0.951538C8.33333 0.482111 8.67225 0.076305 9.13998 0.0364643C9.42344 0.0123211 9.71028 -4.2445e-07 10 -4.37114e-07C15.5228 -6.78525e-07 20 4.47715 20 10C20 15.5228 15.5228 20 10 20C4.47715 20 -1.95703e-07 15.5228 -4.37114e-07 10C-5.52021e-07 7.37122 1.01434 4.97936 2.67298 3.19444L1.25 3.19444C0.789762 3.19444 0.416666 2.82135 0.416666 2.36111C0.416666 1.90087 0.789762 1.52778 1.25 1.52778L4.86111 1.52778C5.32135 1.52778 5.69444 1.90087 5.69444 2.36111L5.69444 5.97222C5.69444 6.43246 5.32135 6.80556 4.86111 6.80556C4.40087 6.80556 4.02778 6.43246 4.02778 5.97222L4.02778 4.18819C2.56663 5.68942 1.66667 7.73961 1.66667 10C1.66667 14.6024 5.39763 18.3333 10 18.3333C14.6024 18.3333 18.3333 14.6024 18.3333 10Z" fill="currentColor"></path>
+            </svg>
+        </button>
+        
+        
+        <!-- Modals -->
+
+        <div class="modal" id="mymodal" tabindex="-1">
+            <div class="modal-content">
+                <div class="header">
+                    <span class="close" id="close1">&times;</span>
+                    <h4>Các loại khí có trong không khí:</h4>
+                    <hr>
+                </div>
+                <div class="content">
+                    <p>CO (hay <a href="https://vi.wikipedia.org/wiki/Carbon_monoxide" target="_blank">Carbon monoxide</a>)</p>
+                    <p>NO (hay <a href="https://vi.wikipedia.org/wiki/Nit%C6%A1_monoxide" target="_blank">Nitơ monoxide</a>)</p>
+                    <p>NO<sub>2</sub> (hay <a href="https://vi.wikipedia.org/wiki/Nit%C6%A1_dioxide" target="_blank">Nitơ dioxide</a>)</p>
+                    <p>O<sub>3</sub> (hay <a href="https://vi.wikipedia.org/wiki/Ozon" target="_blank">Ozon</a>)</p>
+                    <p>SO<sub>2</sub> (hay <a href="https://vi.wikipedia.org/wiki/L%C6%B0u_hu%E1%BB%B3nh_dioxide" target="_blank">Lưu huỳnh dioxide</a>)</p>
+                    <p>PM<sub>2.5</sub> (hay <a href="https://en.wikipedia.org/wiki/Particulates" target="_blank">bụi mịn 2.5 micromét</a>)</p>
+                    <p>PM<sub>10</sub> (hay <a href="https://en.wikipedia.org/wiki/Particulates#Size,_shape,_and_solubility_matter" target="_blank">bụi mịn 10 micromét</a>)</p>
+                    <p>NH<sub>3</sub> (hay <a href="https://vi.wikipedia.org/wiki/Amonia" target="_blank">Amonia</a>)</p>
+                </div>
+                <div class="footer"></div>
+            </div>
+        </div>
+        <div class="modal" id="mymodal1" tabindex="-1">
+            <div class="modal-content">
+                <div class="header">
+                    <span class="close" id="close">&times;</span>
+                </div>
+                <div class="content">
+                    <fieldset>
+                        <legend>Điều kiện thời tiết</legend>
+                        <label for="location1">Vị trí</label>
+                        <div id="location2">
+                            <p id="location1"></p>
+                        </div>
+                        <label for="sky">Tình trạng bầu trời</label>
+                        <div id="sky">
+                            <button id="clear" data-eventtype="weather_feedback" class="weatherButtonWrapper-DS-EntryPoint1-1" data-t="{&quot;n&quot;:&quot;WeatherFeedback_Item&quot;,&quot;a&quot;:&quot;click&quot;,&quot;b&quot;:0}">
+                                <img src="" id="clear1" alt="clear">
+                                <p id="clear2"></p>
+                                
+                            </button>
+                            <button id="few-clouds">
+                                <img src="" id="few-clouds1" alt="few clouds">
+                                <p id="few-clouds2"></p>
+                            </button>
+                            <button id="cloudy1">
+                                <img src="" alt="cloudy" id="cloudy2">
+                                <p id="cloudy3"></p>
+                            </button>
+                            <button id="black-clouds">
+                                <img src="" alt="black clouds" id="black-clouds1">
+                                <p id="black-clouds2"></p>
+                            </button>
+                        </div>
+                        <label for="rains">Lượng mưa</label>
+                        <div id="rains">
+                            <button id="no-rain">
+                                <svg width="20" height="22" viewBox="0 0 20 22" xmlns="http://www.w3.org/2000/svg" class="inline-DS-EntryPoint1-1"><g filter="url(#svg_wf_np_1)"><path d="M10.0849 1.99998L5.39146 11.0879C5.14513 11.6782 4.99997 12.3225 4.99997 12.9993C4.99997 13.6761 5.14513 14.3205 5.39146 14.9107C5.65098 15.5205 6.02267 16.074 6.48894 16.5346C6.9574 16.9951 7.52044 17.3584 8.14066 17.6135C8.74108 17.8579 9.39649 17.9984 10.0849 17.9984C10.7755 17.9984 11.4309 17.8579 12.0291 17.6135C12.6516 17.3584 13.2124 16.9951 13.6809 16.5346C14.1493 16.074 14.521 15.5205 14.7783 14.9107C15.0269 14.3205 15.1698 13.6761 15.1698 12.9993C15.1698 12.3225 15.0269 11.6782 14.7783 11.0879L10.0849 1.99998Z" fill="#A4D4FF"></path><path d="M10.9443 3.67113L6.76646 11.7907C6.54513 12.3211 6.4147 12.9 6.4147 13.5081C6.4147 14.1162 6.54513 14.6952 6.76646 15.2256C6.99965 15.7734 7.33362 16.2708 7.75256 16.6846C8.17348 17.0984 8.67938 17.4248 9.23665 17.6541C9.77615 17.8736 10.365 17.9999 10.9836 17.9999C11.6041 17.9999 12.193 17.8736 12.7305 17.6541C13.2898 17.4248 13.7937 17.0984 14.2146 16.6846C14.6355 16.2708 14.9695 15.7734 15.2007 15.2256C15.424 14.6952 15.5525 14.1162 15.5525 13.5081C15.5525 12.9 15.424 12.3211 15.2007 11.7907L10.9443 3.67113Z" fill="url(#svg_wf_np_2)"></path></g><rect x="15.7768" y="18.3862" width="18" height="1.51629" rx="0.758144" transform="rotate(-135 15.7768 18.3862)" fill="white"></rect><rect x="15.7279" y="18.4351" width="18" height="1" rx="0.5" transform="rotate(-135 15.7279 18.4351)" fill="url(#svg_wf_np_3)"></rect><defs><filter id="svg_wf_np_1" x="2.99997" y="1.99998" width="14.5525" height="19.9999" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"></feColorMatrix><feOffset dy="2"></feOffset><feGaussianBlur stdDeviation="1"></feGaussianBlur><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"></feColorMatrix><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"></feBlend><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"></feBlend></filter><linearGradient id="svg_wf_np_2" x1="5.40719" y1="13.7404" x2="16.0619" y2="8.76388" gradientUnits="userSpaceOnUse"><stop offset="0.395833" stop-color="#6BB5F8"></stop><stop offset="1" stop-color="#2696EF"></stop></linearGradient><linearGradient id="svg_wf_np_3" x1="18.6716" y1="20.3493" x2="15.8431" y2="18.9351" gradientUnits="userSpaceOnUse"><stop stop-color="#6BB5F8"></stop><stop offset="1" stop-color="#2696EF"></stop></linearGradient></defs>
+                                </svg>
+                                <p id="no-rains">Không có mưa</p>
+                            </button>
+                            <button id="rain5">
+                                <img src="" alt="rain" id="rain3">
+                                <p id="rain4">Có mưa</p>
+                            </button>
+                            <button id="lightning">
+                                <img src="" alt="lightning" id="lightning1">
+                                <p id="lightning2">Có sấm sét</p>
+                            </button>
+			                <button id="snow1">
+                                <img src="" alt="snow" id="snow2">
+                                <p id="snow3">Có tuyết</p>
+                            </button>
+                        </div>
+                    </fieldset>
+                        <form id="datavalue" action="Thời tiết/data/php/savedata.php" data-216a364="form-value">
+                            <input name="name" type="text" id="name1" placeholder="Tên của bạn" tabindex="1"><br>
+                            <label for="ykien">Bạn cảm thấy thời tiết như thế nào?</label><br>
+                            
+                            <textarea name="details" id="ykien" style="font-family:Arial, Helvetica, sans-serif;align-items: center;width:10cm;height:4cm" required tabindex="2"></textarea>
+                            <br>
+                            <button type="submit" id="submit_button">Gửi ý kiến</button>
+                        </form>
+
+                    
+                </div>
+                <!---->
+            </div>
+        </div>
+        <div id="modal-countdown" class="modal-countdown" tabindex="-1" style="display:none;">
+            <div class="countdown-content">
+                <div class="header">
+                    <span class="close" id="close-countdown">&times;</span>
+                </div>
+                
+                <p id="time_now1"></p>
+                <b id="time_count_now" style="font-size:40px"></b>
+                <p id="utc_time"></p>
+                <div id="modal_content">
+                    <p id="countdown_title"></p>
+                    <p id="day_display" style="font-size: 60px; text-align: center"> </p>
+                    <p id="month_display"></p>
+                    <p id="weeks_display"> </p>
+                    <br>
+                    <div id="datetime-countdown">
+                        <p id="hour_display" style="font-size: 35px; margin-left: -4cm"> </p>
+                        <p id="minutes_display" style="margin-top: -2cm;font-size: 35px;margin-left: 3.9cm"></p> 
+                        <p id="second_display" style="font-size: 35px;margin-left: 6.5cm"> </p>
+                    </div>
+                    <audio id="newyear_song" controls style="display:none;">
+                        <source src="./Thời%20tiết/Xenogenesis%20-%20TheFatRat.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <p id="notes" style="color:grey;">* Chú ý: Đếm ngược hoàn toàn vào giờ địa phương.</p>
+            </div>
+        </div>
+    </div>
+    
+</body>
+<!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
+<script src="Thời tiết/data/js/weather.js"></script>
+<script src="Thời tiết/data/js/air-pollution.js"></script>
+<script src="Thời tiết/data/js/location.js"></script>
+<script src="Thời tiết/data/js/map.js"></script>
+<!--<script src="Thời tiết/data/js/help.js"></script>-->
+<script src="Thời tiết/data/js/search.js"></script>
+<script src="Thời tiết/data/__cookie.js"></script>
+<script src="Thời tiết/data/js/astronomy.js"></script>
+<script src="Thời tiết/data/js/typing-test.js"></script>
+<script src="Thời tiết/data/js/share-screen.js"></script>
+<script src="Thời tiết/data/js/countdown.js"></script>
+<script src="Thời tiết/data/js/URLs/get-params.js"></script>
+<!--<script type="text/babel" src="Thời tiết/data/js-react/typing_test.jsx"></script>-->
+<!--<script src="Thời tiết/data/js/dist/output.js"></script>-->
+
+<!--<script src="Thời tiết/data/js/dist/searchweather.js"></script>
+<script src="Thời tiết/data/__server.js"></script>-->
+<!--<script src="Thời tiết/data/ts-tsx/weather.tsx"></script>-->
+<!--<script src="Thời tiết/data/ts/weather.ts"></script>-->
+<!--<script src="https://maps.google.com/maps/api/js"></script>-->
+</html>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Info>
+    <Author>Minh Nhân</Author>
+    <Website href="https://hungmy.com">https://hungmy.com</Website>
+    <Company>Công ty TNHH Hưng Mỵ</Company>
+    <Tel value="+84984787752" />
+    <Social>
+        <Facebook href="https://facebook.com/minhnhan341" />
+        <TikTok href="https://tiktok.com/@minhnhan175" />
+        <Instagram href="https://instagram.com/minhnhan175" />
+    </Social>
+    <id info="250000" />
+    <cod>200</cod>
+</Info>

@@ -1,0 +1,128 @@
+#astronomy_events {
+    max-width: 500px;
+    margin: 0cm 0cm 2cm 1cm;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.418); /* Set the background color to be transparent */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Adjust the alpha value here for the box shadow transparency */
+    margin-top: 0px;
+    transition: transform 0.3s ease-in-out;
+    float: left;
+}
+#lm-tm,.one {border-right: 1px solid #ccc;padding:3px;}
+.one {width: 8.33333333%;}
+.columns {
+    float: left;
+    margin: 0;
+    min-height: 1px;
+    padding: 0 10px;
+    position: relative;
+}
+.fw {
+    width: 100%;
+}
+.va-m, .va-m tbody th, table.va-m td {vertical-align: middle;}
+table, thead {text-align: left;}
+.c-key {
+    border: 1px solid rgba(0, 0, 0, .4);
+    display: inline-block;
+    height: 16px;
+    margin-right: 6px;
+    width: 16px;
+} #lm-key tr {
+    border-bottom: 1px solid #eee;
+    line-height: 1.4;
+}
+.c-key {
+    border: 1px solid #000;
+    height: 20px;
+    width: 20px;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+} tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    unicode-bidi: isolate;
+    border-color: inherit;
+} #lm-key tr {
+    border-bottom: 1px solid #eee;
+    line-height: 1.4;
+} tr {
+    display: table-row;
+    vertical-align: inherit;
+    unicode-bidi: isolate;
+    border-color: inherit;
+}.va-m, .va-m tbody th, table.va-m td {vertical-align: middle;}
+.tr {text-align: right;}
+td, th {padding: 4px;}
+td {
+    border: none;
+    vertical-align: top;
+}
+td, th {padding: 5px 9px;}
+td, th {padding: 0;}
+.mgb25 {margin-bottom: 25px !important;}
+#astronomy_events:hover {
+    transform: scale(1.05);
+}
+#as-lm {
+    height: 80px;
+    margin-top: 24px
+}
+/* Hovers */
+#lm-leg-0:hover, #lm-leg-1:hover, #lm-leg-2:hover,
+#lm-leg-3:hover, #lm-leg-4:hover, #lm-leg-5:hover,
+#lm-leg-6:hover, #lm-leg-7:hover, #lm-leg-8:hover {
+    background-color: #ffe600;
+}
+.as-lm-period {
+    display: inline-block;
+    height: 100%;
+    position: relative;
+    vertical-align: none;
+    width:455.328px;
+}
+
+.as-lm-period.hover {
+    box-shadow: 0 0 0 2px gold;
+    z-index: 10
+}
+
+.as-daylight {
+    background-color: #b1dae7;
+}
+
+.as-civil-twilight {
+    background-color: #63b4cf;
+}
+
+.as-nautical-twilight {
+    background-color: #316577
+}
+
+.as-astronomical-twilight {
+    background-color: #18404e
+}
+
+.as-night {
+    background-color: #061013
+}
+:root {
+    --legacy-border-radius-none: 0;
+    --legacy-border-radius-xsmall: 0.125rem;
+    --legacy-border-radius-small: 0.25rem;
+    --legacy-border-radius-xmedium: 0.375rem;
+    --legacy-border-radius-medium: 0.5rem;
+    --legacy-border-radius-large: 0.625rem;
+    --legacy-border-radius-xlarge: 0.75rem;
+    --legacy-border-radius-2xlarge: 1rem;
+    --legacy-border-radius-3xlarge: 1.25rem;
+    --legacy-border-radius-4xlarge: 3.75rem;
+    --legacy-border-radius-rounded: 50%
+}
+*, ::before, ::after {
+    box-sizing:border-box;
+}

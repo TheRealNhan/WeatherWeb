@@ -1,0 +1,15 @@
+@media (max-width: 600px) {
+    body, #newBody {
+        width: 100%;
+    }
+}
+@media (min-width: 601px) and (max-width: 768px) {
+    body, #newBody {
+        width: 100%;
+    }
+}
+@media (min-width: 769px) {
+    body, #newBody {
+        width: 100%;
+    }
+}

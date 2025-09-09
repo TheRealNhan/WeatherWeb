@@ -1,0 +1,139 @@
+/* The Modal (background) */
+@-webkit-keyframes zoomin {
+    0% {-webkit-zoom: 0%}
+    100% {-webkit-zoom: 100%}
+}
+@keyframes zoomin {
+    0% {zoom: 0%}
+    100% {zoom: 100%}
+}
+@-o-keyframes zoomin {
+    0% {-o-zoom: 0%}
+    100% {-o-zoom: 100%}
+}
+@-moz-keyframes zoomin {
+    0% {-moz-zoom: 0%}
+    100% {-moz-zoom: 100%}
+}
+@-webkit-keyframes zoomout {
+    0% {-webkit-zoom: 100%}
+    100% {-webkit-zoom: 0%}
+}
+@keyframes zoomout {
+    0% {zoom: 100%}
+    100% {zoom: 0%}
+}
+@-o-keyframes zoomout {
+    0% {-o-zoom: 100%}
+    100% {zoom: 0%}
+}
+
+@-moz-keyframes zoomout {
+    0% {-moz-zoom: 100%}
+    100% {-moz-zoom: 0%}
+}
+#modal-countdown {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.99); /* Black w/ opacity */
+  animation: zoomin 1s ease-in-out;
+  color: white;
+}
+
+.modal, #modal1{
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+    animation: zoomin 0.6s ease-in-out;
+  color:black;
+  }
+  #countdown_content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 100%; /* Could be more or less, depending on screen size */
+    max-width: 600px; /* Set a maximum width */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 100%; /* Could be more or less, depending on screen size */
+    max-width: 1000px; /* Set a maximum width */
+     }
+  
+  /* The Close Button */
+  .close, #close1, #close_countdown {
+    color: #aaa; float: right; font-size: 28px; font-weight: bold;
+  }  #close_type {
+    color:grey; float:right; font-size:28px;font-weight:bold;
+  }
+  
+  .close:hover,
+  .close:focus,
+  #close1:hover,
+  #close1:focus, #close_countdown:hover, #close_countdown:focus, 
+  #close_type:hover, #close_type:focus {
+    color: black; text-decoration: none; cursor: pointer;
+  }
+  .fc1, .nhabacmy {
+    text-align: center;
+}
+#bacmy {
+    cursor: pointer;
+}
+#sky, #rains {
+    text-align: center;
+}
+#clear:hover, #few-clouds:hover, #cloudy1:hover, 
+#black-clouds:hover, #no-rain:hover, #rain5:hover, #lightning:hover, #snow1:hover
+{
+    border: 1px solid #000000;
+}
+#clear:focus, #few-clouds:focus, #cloudy1:focus, 
+#black-clouds:focus
+{
+  /**/
+  border: 1px solid #000000;
+  background-color: #43448d;
+}
+#no-rain:focus, #rain5:focus, #lightning:focus, #snow1:focus {
+  border: 1px solid #000000;
+  background-color: #43448d;
+  /**/
+}
+#clear,#few-clouds,#cloudy1,#black-clouds,
+#no-rain, #rain5,#lightning,#snow1 {
+    border:1px solid #000000;
+    background-color: #007BFF;
+}
+/*#clear, #few-clouds, #cloudy1 {
+    width: 20px;
+    height: 40px;
+}*/

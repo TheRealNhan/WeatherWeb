@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Website>
+    <Form>
+        <title>Tìm kiếm thời tiết</title>
+        <link data="https://api.openweathermap.org/data/2.5/weather">Dữ liệu</link>
+    </Form>
+    <Forecast>
+        <title>Dự báo thời tiết</title>
+        <link data="https://api.openweathermap.org/data/2.5/forecast">Dữ liệu từ</link>
+    </Forecast>
+    <Air>
+        <modal>
+            <title>Các thể loại của không khí</title>
+            <text value="CO" />
+            <Link from="https://vi.wikipedia.org/wiki/Carbon_monoxide">Carbon monoxide</Link>
+            <text value="NO" />
+            <Link from="https://vi.wikipedia.org/wiki/Nit%C6%A1_monoxide">Nitơ monoxide</Link>
+            <text value="NO2" />
+            <Link from="https://vi.wikipedia.org/wiki/Nit%C6%A1_dioxide">Nitơ dioxide</Link>
+            <text value="O3" />
+            <Link from="https://vi.wikipedia.org/wiki/Ozon">Ozon</Link>
+            <text value="SO2" />
+            <Link from="https://vi.wikipedia.org/wiki/L%C6%B0u_hu%E1%BB%B3nh_dioxide">Lưu huỳnh dioxide</Link>
+            <text value="PM2.5" />
+            <Link from="https://en.wikipedia.org/wiki/Particulates">Bụi mịn 2.5 micromét</Link>
+            <text value="PM10" />
+            <Link from="https://en.wikipedia.org/wiki/Particulates#Size,_shape,_and_solubility_matter">Bụi mịn 10 micromét</Link>
+            <text value="NH3" />
+            <Link from="https://vi.wikipedia.org/wiki/Amonia">Amonia</Link>
+        </modal>
+        <content>
+            <location data-from="https://api.openweathermap.org/data/2.5/air_pollution">
+                Địa điểm
+            </location>
+            <aqi data-from="https://api.openweathermap.org/data/2.5/air_pollution">
+                AQI
+            </aqi>
+        </content>
+    </Air>
+</Website>
