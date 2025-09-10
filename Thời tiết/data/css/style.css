@@ -5,178 +5,227 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    width:100%;
+    width: 100%;
 }
+
 html {
-    height: 228px; 
+    height: 228px;
     width: 1280px;
     scroll-behavior: smooth;
 }
+
 #notes {
     color: rgba(0, 0, 0, 0.425);
     font-size: 10px;
 }
+
 #time {
     text-align: center;
 }
-#newBody {width:100%;height:100%;}
-.container, .health, .air, .map, .searchdata,
-#typing-test, .share-screen,#countdown
-{
+
+#newBody {
+    width: 100%;
+    height: 110%;
+}
+
+.container,
+.health,
+.air,
+.map,
+.searchdata,
+#typing-test,
+.share-screen,
+#countdown {
     max-width: 500px;
     margin: 0cm 0cm 2cm 1cm;
     text-align: center;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.418); /* Set the background color to be transparent */
+    background-color: rgba(255, 255, 255, 0.418);
+    /* Set the background color to be transparent */
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Adjust the alpha value here for the box shadow transparency */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    /* Adjust the alpha value here for the box shadow transparency */
     margin-top: 0px;
     transition: transform 0.3s ease-in-out;
     float: left;
 }
+
+
+
 .forecast1 {
     max-width: 600px;
     width: 9cm;
     margin: 0cm 0cm 1cm 709.08px;
     text-align: center;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.418); /* Set the background color to be transparent */
+    background-color: rgba(255, 255, 255, 0.418);
+    /* Set the background color to be transparent */
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Adjust the alpha value here for the box shadow transparency */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    /* Adjust the alpha value here for the box shadow transparency */
     margin-top: 0px;
     transition: transform 0.3s ease-in-out;
-    float:left;
+    float: left;
 }
+
 #refresh {
     background-color: black;
     border-radius: 100%;
     display: block;
-    position: fixed; /* Fixed/sticky position */
-    bottom: 20px; /* Place the button at the bottom of the page */
-    right: 30px; /* Place the button 30px from the right */
-    z-index: 99; /* Make sure it does not overlap */
-    border: none; /* Remove borders */
-    outline: none; /* Remove outline */
-    color: white; /* Text color */
-    cursor: pointer; /* Add a mouse pointer on hover */
-    padding: 15px; /* Some padding */
-    border-radius: 100%; /* Rounded corners */
-    font-size: 18px; /* Increase font size */
+    position: fixed;
+    /* Fixed/sticky position */
+    bottom: 20px;
+    /* Place the button at the bottom of the page */
+    right: 30px;
+    /* Place the button 30px from the right */
+    z-index: 99;
+    /* Make sure it does not overlap */
+    border: none;
+    /* Remove borders */
+    outline: none;
+    /* Remove outline */
+    color: white;
+    /* Text color */
+    cursor: pointer;
+    /* Add a mouse pointer on hover */
+    padding: 15px;
+    /* Some padding */
+    border-radius: 100%;
+    /* Rounded corners */
+    font-size: 18px;
+    /* Increase font size */
 }
-#datetime, #update-time {
+
+#datetime,
+#update-time {
     color: #ff4500;
     /*border: orangered solid 0.1px;
     border-radius: 10px;*/
 }
-.container:hover,.forecast1:hover, .health:hover, .air:hover, 
-.map:hover,.searchdata:hover,#typing-test:hover, #share-screen:hover,
-#countdown:hover
-{
+
+.container:hover,
+.forecast1:hover,
+.health:hover,
+.air:hover,
+.map:hover,
+.searchdata:hover,
+#typing-test:hover,
+#share-screen:hover,
+#countdown:hover {
     transform: scale(1.05);
 }
+
 textarea {
     resize: none;
     user-select: none;
-} img {
+}
+
+img {
     user-select: none;
     -webkit-user-drag: none;
 }
-#weatherin, #aqi_bcolor {
+
+#weatherin,
+#aqi_bcolor {
     border: 0.1px solid #000000;
     border-radius: 10px;
 }
+
 .weather {
     max-width: 450px;
     margin: 0cm 0cm 1cm 2cm;
     text-align: center;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.418); /* Set the background color to be transparent */
+    background-color: rgba(255, 255, 255, 0.418);
+    /* Set the background color to be transparent */
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Adjust the alpha value here for the box shadow transparency */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    /* Adjust the alpha value here for the box shadow transparency */
     margin-top: 0px;
     transition: transform 0.3s ease-in-out;
     /*overflow: auto;*/
 }
+
 .weather:hover {
     transform: scale(0.5);
 }
+
 .health {
     margin-left: -2cm;
     margin-top: -10cm;
     display: block;
 }
+
 .air {
     margin-left: 3cm;
 }
-.map {
-    margin-top: -10cm;
-    margin-left: auto;
-}
+
 /* Panels */
 
 .accordion {
-  background-color: #eee;
-  color: #444;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-  width: 426.22px;
-  transition: 0.3s;
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    width: 426.22px;
+    transition: 0.3s;
 }
 
-.active, .accordion:hover {
-  background-color: #ccc;
+.active,
+.accordion:hover {
+    background-color: #ccc;
 }
 
 .accordion:after {
-  content: '\002B';
-  color: #777;
-  font-weight: bold;
-  float: right;
-  margin-left: 5px;
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
 }
 
 .active:after {
-  content: '\2212';
+    content: '\2212';
 }
 
 .panel {
-  padding: 0 18px;
-  background-color: white;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    /* transition: max-height 0.2s ease-out; */
+}
+
+
+@media (max-width: 480px) {
+    body {
+        max-width: 480px;
+    }
+    #newBody {
+        max-width: 480px;
+    }
+
+    #maps {
+        margin-top: -7cm;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 1024px) {
+    body {
+        max-width: 1024px;
+    }
+    #newBody {
+        max-width: 1024px;
+        /* line-height: 1.5; */
+    }
 }
 
 /*
-@media only screen and (max-width: 420px) {
-    body {
-        width: 130%;
-    }
-}
-
-@media all and (min-width: 320px) {
-    body {
-        width: 130%;
-        line-height: 1.5;
-    }
-}
-@media all and (min-width: 600px) {
-    body {
-        width: 150%;
-        line-height: 2;
-    }
-}
-@media all and (min-width: 1024px) {
-    body {
-        width: 200%;
-        line-height: 2.5;
-    }
-}
 
 .forecast {
     max-width: 500px;
@@ -216,9 +265,11 @@ textarea {
 h1 {
     font-size: 24px;
 }
+
 .fc_label {
     text-align: center;
 }
+
 .fa {
     padding: 20px;
     font-size: 30px;
@@ -228,13 +279,16 @@ h1 {
     margin: 5px 2px;
     border-radius: 50%;
 }
+
 .fa:hover {
     opacity: 0.7;
 }
+
 .fa-facebook {
     background: #3B5998;
     color: white;
 }
+
 #snackbar {
     visibility: hidden;
     max-width: 300px;
@@ -244,38 +298,67 @@ h1 {
     text-align: center;
     border-radius: 2px;
     padding: 16px;
-    position:fixed;
+    position: fixed;
     z-index: 1;
     left: 50%;
     bottom: 30px;
     font-size: 17px;
-  }
-  
-  #snackbar.show {
+}
+
+#snackbar.show {
     visibility: visible;
     -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
-  }
-  
-  @-webkit-keyframes fadein {
-    from {bottom: 0; opacity: 0;} 
-    to {bottom: 30px; opacity: 1;}
-  }
-  
-  @keyframes fadein {
-    from {bottom: 0; opacity: 0;}
-    to {bottom: 30px; opacity: 1;}
-  }
-  
-  @-webkit-keyframes fadeout {
-    from {bottom: 30px; opacity: 1;} 
-    to {bottom: 0; opacity: 0;}
-  }
-  
-  @keyframes fadeout {
-    from {bottom: 30px; opacity: 1;}
-    to {bottom: 0; opacity: 0;}
-  }
+}
+
+@-webkit-keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
 input[type="text"] {
     padding: 10px;
     margin: 10px 0;
@@ -283,6 +366,7 @@ input[type="text"] {
     width: 130px;
     border-radius: 5px;
 }
+
 input[type="search"] {
     width: 90%;
     padding: 10px;
@@ -293,6 +377,7 @@ input[type="search"] {
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
 }
+
 .fa {
     padding: 20px;
     font-size: 30px;
@@ -302,24 +387,34 @@ input[type="search"] {
     margin: 5px 2px;
     border-radius: 50%;
 }
+
 .fa:hover {
     opacity: 0.7;
 }
+
 .fa-facebook {
     background: #3B5998;
     color: white;
 }
-#diachi, #diachi1 {
-    -webkit-user-select:text;
+
+#diachi,
+#diachi1 {
+    -webkit-user-select: text;
     -moz-user-select: text;
     -ms-user-select: text;
     user-select: text;
 }
-input[type="text"]:focus {outline: none; border-color: #2196F3;}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #2196F3;
+}
+
 input[type="search"]:focus {
     outline: none;
     border-color: #2196F3;
 }
+
 /*input[type="text"], input[type="search"]:hover {
     transform: scale(1.05);
 }
@@ -331,19 +426,31 @@ input[type="search"]:focus {
     border-radius: 5px;
     user-select: none;
 }*/
-#sunrise, #pressure, #minmaxtemp, #sealevel, #winddir {font-size: 13px;}
+#sunrise,
+#pressure,
+#minmaxtemp,
+#sealevel,
+#winddir {
+    font-size: 13px;
+}
 
-.container-info {margin-top: 0px;}
+.container-info {
+    margin-top: 0px;
+}
+
 #rss-image {
     zoom: 0.1;
 }
+
 #mymodal {
     text-align: center;
 }
+
 #health {
     margin-top: -8cm;
     margin-left: 2.5cm;
 }
+
 .hr_today {
     border: 0.75px dashed grey;
 }
