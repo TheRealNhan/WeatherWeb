@@ -145,7 +145,7 @@ class _Cache {
 
 const element = document.querySelector('.container');
 const element1 = document.querySelector('.air');
-const element2 = document.querySelector('.map');
+// const element2 = document.querySelector('.map');
 const element3 = document.querySelector('.health');
 
 element.addEventListener('mouseover', () => {
@@ -421,7 +421,7 @@ function fetchWeather(location) {
     if (window.navigator.onLine == true) {
         document.getElementById('container').style.display = 'block';document.getElementById('forecast').style.display = 'block';
         document.getElementById('air').style.display = 'block';
-        document.getElementById('map').style.display = 'block';
+        // document.getElementById('map').style.display = 'block';
         document.getElementById('health').style.display = 'block';
         document.getElementById('searchdata').style.display = 'none';
         document.getElementById('astronomy_events').style.display='block';
@@ -429,7 +429,7 @@ function fetchWeather(location) {
         document.getElementById('share-screen').style.display = 'block';
         
         document.getElementById('share-screen').style.marginTop='-16.4cm';
-        document.getElementById('map').style.marginTop='-8cm';
+        // document.getElementById('map').style.marginTop='-8cm';
         document.getElementById('health').style.marginTop='-8cm';
         document.getElementById('health').style.marginLeft='1.5cm';
         document.getElementById('astronomy_events').style.marginLeft = '18cm';
@@ -437,25 +437,48 @@ function fetchWeather(location) {
         document.getElementById('share-screen').style.marginTop='-17.84cm';
         document.getElementById('share-screen').style.marginLeft = '8cm';
         setInterval(() => {
-            if (document.getElementById('detials-tag').open == true) {
-                document.getElementById('typing-test').style.marginTop='-16.5cm';
-                if (document.getElementById('text-to-type').innerHTML == '') {
-                    document.getElementById('share-screen').style.marginTop='-17.84cm';
-                    document.getElementById('share-screen').style.marginLeft = '8cm';
+            if (screen.width >= 1024) {
+                if (document.getElementById('detials-tag').open == true) {
+                    document.getElementById('typing-test').style.marginTop='-16.5cm';
+                    if (document.getElementById('text-to-type').innerHTML == '') {
+                        document.getElementById('share-screen').style.marginTop='-17.84cm';
+                        document.getElementById('share-screen').style.marginLeft = '8cm';
+                    } else {
+                        document.getElementById('share-screen').style.marginTop='-8cm';
+                        document.getElementById('share-screen').style.marginLeft = '1cm';
+                    }
                 } else {
-                    document.getElementById('share-screen').style.marginTop='-8cm';
-                    document.getElementById('share-screen').style.marginLeft = '1cm';
+                    document.getElementById('typing-test').style.marginTop='-8.84cm';
+                    if (document.getElementById('text-to-type').innerHTML == '') {
+                        document.getElementById('share-screen').style.marginTop='-8.84cm';
+                        document.getElementById('share-screen').style.marginLeft = '8cm';
+                    } else {
+                        document.getElementById('share-screen').style.marginTop='-1cm';
+                        document.getElementById('share-screen').style.marginLeft = '1cm';
+                    }
+                    
                 }
-            } else {
-                document.getElementById('typing-test').style.marginTop='-8.84cm';
-                if (document.getElementById('text-to-type').innerHTML == '') {
-                    document.getElementById('share-screen').style.marginTop='-8.84cm';
-                    document.getElementById('share-screen').style.marginLeft = '8cm';
+            } else if (screen.width < 1024 && screen.width >= 768) {
+                if (document.getElementById('detials-tag').open == true) {
+                    document.getElementById('typing-test').style.marginTop='-0.5cm';
+                    if (document.getElementById('text-to-type').innerHTML == '') {
+                        document.getElementById('share-screen').style.marginTop='-25.84cm';
+                        document.getElementById('share-screen').style.marginLeft = '8cm';
+                    } else {
+                        document.getElementById('share-screen').style.marginTop='-8cm';
+                        document.getElementById('share-screen').style.marginLeft = '1cm';
+                    }
                 } else {
-                    document.getElementById('share-screen').style.marginTop='-1cm';
-                    document.getElementById('share-screen').style.marginLeft = '1cm';
+                    document.getElementById('typing-test').style.marginTop='-0.84cm';
+                    if (document.getElementById('text-to-type').innerHTML == '') {
+                        document.getElementById('share-screen').style.marginTop='-25.84cm';
+                        document.getElementById('share-screen').style.marginLeft = '8cm';
+                    } else {
+                        document.getElementById('share-screen').style.marginTop='-1cm';
+                        document.getElementById('share-screen').style.marginLeft = '1cm';
+                    }
+                    
                 }
-                
             }
         }, 100);
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric&lang=vi&cnt=7`;
@@ -897,7 +920,7 @@ mưa, tuyết.</h4>`
         setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
         
         document.getElementById('typing-test').style.marginTop='0cm';
-        document.getElementById('map').style.marginTop='0cm';
+        // document.getElementById('map').style.marginTop='0cm';
         document.getElementById('share-screen').style.marginTop='-8.34cm';
         document.getElementById('astronomy_events').style.marginLeft = '4cm';
         document.getElementById('astronomy_events').style.marginTop = 'cm';

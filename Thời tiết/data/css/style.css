@@ -37,7 +37,6 @@ html {
 .share-screen,
 #countdown {
     max-width: 500px;
-    margin: 0cm 0cm 2cm 1cm;
     text-align: center;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.418);
@@ -50,6 +49,18 @@ html {
     float: left;
 }
 
+@media screen and (min-width: 1024px) {
+    .container,
+    .health,
+    .air,
+    .map,
+    .searchdata,
+    #typing-test,
+    .share-screen,
+    #countdown {
+        margin: 0cm 0cm 2cm 1cm;
+    }
+}
 
 
 .forecast1 {
@@ -202,7 +213,7 @@ img {
 }
 
 
-@media (max-width: 480px) {
+@media screen and (max-width: 480px) {
     body {
         max-width: 480px;
     }
@@ -215,7 +226,7 @@ img {
     }
 }
 
-@media (min-width: 481px) and (max-width: 1024px) {
+@media screen and (min-width: 481px) and (max-width: 1024px) {
     body {
         max-width: 1024px;
     }
@@ -446,9 +457,19 @@ input[type="search"]:focus {
     text-align: center;
 }
 
-#health {
-    margin-top: -8cm;
-    margin-left: 2.5cm;
+@media screen and (min-width: 1024px) {
+
+    #health {
+        margin-top: -8cm;
+        margin-left: 2.5cm;
+    }
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+
+    #health {
+        margin-top: 8cm;
+        margin-left: 2.5cm;
+    }
 }
 
 .hr_today {
