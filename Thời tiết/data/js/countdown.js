@@ -2,22 +2,43 @@ const days_of_the_week = ['Chủ nhật','Thứ hai','Thứ ba','Thứ tư','Th�
 setInterval(() => {
     switch (document.getElementById('detials-tag').open) {
         case true:
-            if (window.navigator.onLine == true) {
-                document.getElementById('countdown').style.marginTop = '-8cm'
-                document.getElementById('countdown').style.marginLeft = '2cm'
-            } else {
-                document.getElementById('countdown').style.marginTop = '-10cm'
-                document.getElementById('countdown').style.marginLeft = '-16cm'
+            if (window.width >= 1024) {
+                if (window.navigator.onLine == true) {
+                    document.getElementById('countdown').style.marginTop = '-8cm'
+                    document.getElementById('countdown').style.marginLeft = '2cm'
+                } else {
+                    document.getElementById('countdown').style.marginTop = '-10cm'
+                    document.getElementById('countdown').style.marginLeft = '-16cm'
 
+                }
+            } else if (window.width > 400 && window.width < 1024) {
+                if (window.navigator.onLine == true) {
+                    document.getElementById('countdown').style.marginTop = '-8cm'
+                    document.getElementById('countdown').style.marginLeft = '-3.14cm'
+                } else {
+                    document.getElementById('countdown').style.marginTop = '-10cm'
+                    document.getElementById('countdown').style.marginLeft = '-16cm'
+
+                }
             }
             break;
         case false:
-            if (window.navigator.onLine == true) {
-                document.getElementById('countdown').style.marginTop = '-12.5cm'
-                document.getElementById('countdown').style.marginLeft = '-8cm'
-            } else {
-                document.getElementById('countdown').style.marginTop = '-10cm'
-                document.getElementById('countdown').style.marginLeft = '-16cm'
+            if (window.width >= 1024) {
+                if (window.navigator.onLine == true) {
+                    document.getElementById('countdown').style.marginTop = '-12.5cm'
+                    document.getElementById('countdown').style.marginLeft = '-8cm'
+                } else {
+                    document.getElementById('countdown').style.marginTop = '-10cm'
+                    document.getElementById('countdown').style.marginLeft = '-16cm'
+                }
+            } else if (window.width > 400 && window.width < 1024) {
+                if (window.navigator.onLine == true) {
+                    document.getElementById('countdown').style.marginTop = '-8cm'
+                    document.getElementById('countdown').style.marginLeft = '-3.14cm'
+                } else {
+                    document.getElementById('countdown').style.marginTop = '-10cm'
+                    document.getElementById('countdown').style.marginLeft = '-16cm'
+                }
             }
             break;
         default:

@@ -34,8 +34,7 @@ html {
 .map,
 .searchdata,
 #typing-test,
-.share-screen,
-#countdown {
+.share-screen {
     max-width: 500px;
     text-align: center;
     padding: 20px;
@@ -48,7 +47,23 @@ html {
     transition: transform 0.3s ease-in-out;
     float: left;
 }
+@media screen and (max-width: 480px) {
 
+
+#countdown {
+    max-width: 40cm;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.418);
+    /* Set the background color to be transparent */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    /* Adjust the alpha value here for the box shadow transparency */
+    margin-top: 0px;
+    transition: transform 0.3s ease-in-out;
+    float: left;
+}
+}
 @media screen and (min-width: 1024px) {
     .container,
     .health,
@@ -59,6 +74,12 @@ html {
     .share-screen,
     #countdown {
         margin: 0cm 0cm 2cm 1cm;
+    }
+}
+
+@media screen and (min-width: 401px) and (max-width: 1023px) {
+    #countdown {
+        margin-left: 10cm;
     }
 }
 
