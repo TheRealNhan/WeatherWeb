@@ -151,14 +151,14 @@ const element3 = document.querySelector('.health');
 element.addEventListener('mouseover', () => {
   element.style.boxShadow = '0 0 20px rgba(0, 0, 0, 0.7)';
   element1.style.boxShadow = '0 0 20px rgba(0, 0, 0, 0.7)';
-  element2.style.boxShadow = '0 0 20px rgba(0, 0, 0, 0.7)';
+//   element2.style.boxShadow = '0 0 20px rgba(0, 0, 0, 0.7)';
   element3.style.boxShadow = '0 0 20px rgba(0, 0, 0, 0.7)';
 });
 
 element.addEventListener('mouseout', () => {
   element.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
   element1.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
-  element2.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
+//   element2.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
   element3.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
 });
 const location10 = locationInput.value;

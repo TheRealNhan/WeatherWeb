@@ -33,14 +33,14 @@ document.getElementById('lonlat_button').addEventListener('click', () => {
 element.addEventListener('mouseover', () => {
   element.style.boxShadow = '0 0 20px rgba(0, 0, 0, 0.7)';
   element1.style.boxShadow = '0 0 20px rgba(0, 0, 0, 0.7)';
-  element2.style.boxShadow = '0 0 20px rgba(0, 0, 0, 0.7)';
+//   element2.style.boxShadow = '0 0 20px rgba(0, 0, 0, 0.7)';
   element3.style.boxShadow = '0 0 20px rgba(0, 0, 0, 0.7)';
 });
 
 element.addEventListener('mouseout', () => {
   element.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
   element1.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
-  element2.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
+//   element2.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
   element3.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.5)';
 });
 
@@ -449,35 +449,6 @@ function fetchWeatherByLonLat(lat, lon) {
             }*/
 
            //video
-
-
-           var video = document.getElementById("rainVideo");
-                video.muted = false;
-                if (data.weather[0].icon == "09d" || data.weather[0].icon == "09n" ||
-                    data.weather[0].icon == "10d" || data.weather[0].icon == "10n" ||
-                    data.weather[0].icon == "11d" || data.weather[0].icon == "11n"
-                ) {
-                    document.getElementsByTagName('body').onload = () => video.play();
-
-                    video.style.display = 'block';
-                    if (video.paused) {
-                        if (video) {
-                            video.muted = false;
-                            video.autoplay = true;
-                        }
-                    }
-                }
-                else {
-                    video.style.display = 'none';
-                    video.muted=true;
-                }
-
-           //
-           //
-
-           if (video.style.display === 'block') {
-               document.getElementById('newBody').style.background = 'rgba(0,0,0,0.5)';
-           } else {document.getElementById('newBody').style.background = 'rgba(0,0,0,0.5)';}
 
            //
            //
