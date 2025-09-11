@@ -10,7 +10,6 @@ body {
 
 html {
     height: 228px;
-    width: 1280px;
     scroll-behavior: smooth;
 }
 
@@ -64,7 +63,6 @@ html {
     float: left;
 }
 /* } */
-@media screen and (min-width: 1024px) {
     .container,
     .health,
     .air,
@@ -75,19 +73,13 @@ html {
     #countdown {
         margin: 0cm 0cm 2cm 1cm;
     }
-}
 
-@media screen and (min-width: 401px) and (max-width: 1023px) {
-    #countdown {
-        margin-left: 10cm;
-    }
-}
 
 
 .forecast1 {
     max-width: 600px;
     width: 9cm;
-    margin: 0cm 0cm 1cm 709.08px;
+    margin: 0cm 0cm 1cm ;
     text-align: center;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.418);
@@ -495,4 +487,92 @@ input[type="search"]:focus {
 
 .hr_today {
     border: 0.75px dashed grey;
+}
+
+@media (max-width: 600px) {
+    html, body {
+        width: 100% !important;
+        min-width: 0 !important;
+        height: auto !important;
+        font-size: 16px !important;
+        padding: 0;
+        margin: 0;
+    }
+    #newBody {
+        width: 100% !important;
+        height: auto !important;
+        max-width: 100vw !important;
+        padding: 0;
+    }
+    #typing-test {
+        width: 100% !important;
+        max-width: 100vw !important;
+        margin: 10px 0 !important;
+        float: none !important;
+        clear: both !important; /* Đảm bảo không bị dính với phần trước/sau */
+        padding: 10px !important;
+        box-sizing: border-box;
+        display: block !important;
+    }
+    #astronomy {
+        width: 100% !important;
+        margin: 10px 0 !important;
+        margin-left: -1cm !important;
+        float: none !important;
+        clear: both !important;
+        display: block !important;
+    }
+    #as-lm {
+        width: 100% !important;
+        min-width: 0 !important;
+        padding: 10px !important;
+        box-sizing: border-box;
+        font-size: 14px !important;  /* hoặc nhỏ hơn nếu cần */
+        overflow-x: auto !important; /* Cho phép cuộn ngang nếu có bảng hoặc nội dung dài */
+        border-radius: 8px !important;
+        margin: 10px 0 !important;
+        /* background: rgba(255,255,255,0.7);*/ /*Tùy chỉnh nếu muốn */
+    }
+    .container,
+    .health,
+    .air,
+    .map,
+    .searchdata,
+    /* #typing-test, */
+    .share-screen,
+    #countdown,
+    .forecast1,
+    .weather {
+        width: 100% !important;
+        max-width: 100vw !important;
+        margin: 10px 0 !important;
+        float: none !important;
+        padding: 10px !important;
+        box-sizing: border-box;
+    }
+    .health,
+    .air {
+        margin-left: 0 !important;
+        margin-top: 0 !important;
+    }
+    input[type="text"],
+    input[type="search"],
+    textarea {
+        width: 100% !important;
+        font-size: 1em !important;
+    }
+    img, video {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+    #refresh {
+        right: 10px !important;
+        bottom: 10px !important;
+        padding: 10px !important;
+        font-size: 16px !important;
+    }
+    .accordion {
+        width: 100% !important;
+        font-size: 1em !important;
+    }
 }

@@ -44,7 +44,6 @@ const forecast_temp = document.getElementById('tempfc1');
 //
 //Notification.requestPermission(); // Request có muốn thông báo của trang web không.
 
-
 var xhr = new XMLHttpRequest();
 xhr.open('GET', '../php/savedata.php',true);
 xhr.onreadystatechange = function () {
@@ -428,25 +427,25 @@ function fetchWeather(location) {
         document.getElementById('typing-test').style.display = 'block';
         document.getElementById('share-screen').style.display = 'block';
         if (screen.width >= 1024) {
-        document.getElementById('share-screen').style.marginTop='-16.4cm';
-        // document.getElementById('map').style.marginTop='-8cm';
-        document.getElementById('health').style.marginTop='-8cm';
-        document.getElementById('health').style.marginLeft='1.5cm';
-        document.getElementById('astronomy_events').style.marginLeft = '18cm';
-        document.getElementById('astronomy_events').style.marginTop = '0cm';
-        
-        document.getElementById('share-screen').style.marginTop='-17.84cm';
-        document.getElementById('share-screen').style.marginLeft = '8cm';
+            document.getElementById('share-screen').style.marginTop='-16.4cm';
+            // document.getElementById('map').style.marginTop='-8cm';
+            document.getElementById('health').style.marginTop='-8cm';
+            document.getElementById('health').style.marginLeft='1.5cm';
+            document.getElementById('astronomy_events').style.marginLeft = '18cm';
+            document.getElementById('astronomy_events').style.marginTop = '0cm';
+            
+            document.getElementById('share-screen').style.marginTop='-17.84cm';
+            document.getElementById('share-screen').style.marginLeft = '8cm';
         } else if (screen.width >= 401 && screen.width < 1024) {
             document.getElementById('share-screen').style.marginTop='-20cm';
-        // document.getElementById('map').style.marginTop='-8cm';
-        document.getElementById('health').style.marginTop='0.5cm';
-        document.getElementById('health').style.marginLeft='1.5cm';
-        document.getElementById('astronomy_events').style.marginLeft = '-1cm';
-        document.getElementById('astronomy_events').style.marginTop = '1cm';
-        
-        document.getElementById('share-screen').style.marginTop='0.84cm';
-        document.getElementById('share-screen').style.marginLeft = '1.5cm';
+            // document.getElementById('map').style.marginTop='-8cm';
+            document.getElementById('health').style.marginTop='0.5cm';
+            document.getElementById('health').style.marginLeft='1.5cm';
+            document.getElementById('astronomy_events').style.marginLeft = '-1cm';
+            document.getElementById('astronomy_events').style.marginTop = '1cm';
+            
+            document.getElementById('share-screen').style.marginTop='0.84cm';
+            document.getElementById('share-screen').style.marginLeft = '1.5cm';
         }
         setInterval(() => {
             if (screen.width >= 1024) {
