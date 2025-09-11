@@ -815,24 +815,6 @@ mưa, tuyết.</h4>`
   <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
 </svg> ${data.name}, ${data.sys.country} (${data.coord.lat}, ${data.coord.lon})`;
 
-                var video = document.getElementById("rainVideo");
-                video.muted = false;
-                if (data.weather[0].icon == "09d" || data.weather[0].icon == "09n" ||
-                    data.weather[0].icon == "10d" || data.weather[0].icon == "10n" ||
-                    data.weather[0].icon == "11d" || data.weather[0].icon == "11n"
-                ) {
-                    document.getElementsByTagName('body').onload = () => video.play();
-                    video.style.display = 'block';
-                    if (video.paused) {
-                        if (video) {
-                            video.muted = false;
-                            video.autoplay = true;
-                        }
-                    }
-                }
-                else {video.style.display = 'none';
-                    video.muted=true;
-                }
 
                 //
                 //
