@@ -431,7 +431,7 @@ function fetchWeather(location) {
             // document.getElementById('map').style.marginTop='-8cm';
             document.getElementById('health').style.marginTop='-8cm';
             document.getElementById('health').style.marginLeft='1.5cm';
-            document.getElementById('astronomy_events').style.marginLeft = '18cm';
+            // document.getElementById('astronomy_events').style.marginLeft = '18cm';
             document.getElementById('astronomy_events').style.marginTop = '0cm';
             
             document.getElementById('share-screen').style.marginTop='-17.84cm';
@@ -459,7 +459,7 @@ function fetchWeather(location) {
                         document.getElementById('share-screen').style.marginLeft = '1cm';
                     }
                 } else {
-                    document.getElementById('typing-test').style.marginTop='-8.84cm';
+                    // document.getElementById('typing-test').style.marginTop='-8.84cm';
                     if (document.getElementById('text-to-type').innerHTML == '') {
                         document.getElementById('share-screen').style.marginTop='-8.84cm';
                         document.getElementById('share-screen').style.marginLeft = '8cm';

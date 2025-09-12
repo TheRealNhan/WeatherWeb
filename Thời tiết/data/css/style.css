@@ -554,9 +554,17 @@ input[type="search"]:focus {
         padding: 10px !important;
         box-sizing: border-box;
     }
+    #typing-test {
+        width: 100% !important;
+        max-width: 100vw !important;
+        margin-top: -15cm !important;
+        float: none !important;
+        padding: 10px !important;
+        box-sizing: border-box;
+    }
     .health {
         margin-left: 0 !important;
-        margin-top: 8cm !important;
+        margin-top: 0 !important;
         float: none !important;
         clear: both !important;
         width: 100% !important;
@@ -582,12 +590,12 @@ input[type="search"]:focus {
         max-width: 100% !important;
         height: auto !important;
     }
-    #refresh {
+    /* #refresh {
         right: 10px !important;
         bottom: 10px !important;
         padding: 10px !important;
         font-size: 16px !important;
-    }
+    } */
     .accordion {
         width: 100% !important;
         font-size: 1em !important;
