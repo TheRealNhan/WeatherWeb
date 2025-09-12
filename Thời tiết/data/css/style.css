@@ -175,13 +175,17 @@ img {
 }
 
 .health {
-    margin-left: -2cm;
-    margin-top: -10cm;
+    margin-left: 0 !important;
+    margin-top: 0 !important;
     display: block;
+    float: none !important;
+    clear: both !important;
 }
-
 .air {
-    margin-left: 3cm;
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+    float: none !important;
+    clear: both !important;
 }
 
 /* Panels */
@@ -517,7 +521,7 @@ input[type="search"]:focus {
     #astronomy {
         width: 100% !important;
         margin: 10px 0 !important;
-        margin-left: -1cm !important;
+        margin-left: 0cm !important;
         float: none !important;
         clear: both !important;
         display: block !important;
@@ -550,10 +554,23 @@ input[type="search"]:focus {
         padding: 10px !important;
         box-sizing: border-box;
     }
-    .health,
+    .health {
+        margin-left: 0 !important;
+        margin-top: 8cm !important;
+        float: none !important;
+        clear: both !important;
+        width: 100% !important;
+        box-sizing: border-box;
+        display: block;
+    }
     .air {
         margin-left: 0 !important;
         margin-top: 0 !important;
+        float: none !important;
+        clear: both !important;
+        width: 100% !important;
+        box-sizing: border-box;
+        display: block;
     }
     input[type="text"],
     input[type="search"],
