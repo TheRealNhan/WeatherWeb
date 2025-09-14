@@ -47,7 +47,13 @@ html {
     float: left;
 }
 /* @media screen and (max-width: 480px) { */
-
+#footer {
+    max-width: 500px;
+    text-align: center;
+    padding: 20px;
+    float: left;
+    margin-top: 0px;
+}
 
 #countdown {
     max-width: 40cm;
@@ -492,7 +498,6 @@ input[type="search"]:focus {
 .hr_today {
     border: 0.75px dashed grey;
 }
-
 @media (max-width: 600px) {
     html, body {
         width: 100% !important;
