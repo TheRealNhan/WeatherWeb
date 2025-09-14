@@ -21,11 +21,11 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
     """
     Trả về Handler bằng cách dùng hàm `do_GET()`,\n
     Nếu `self.path` bằng với `"/"` (`self.path == "/"`),\n
-    thì nó sẽ đổi `self.path` thành `/Thời tiết.html`.
+    thì nó sẽ đổi `self.path` thành `/index.html`.
     """
     def do_GET(self):
         if self.path == "/":
-            self.path = "/Thời tiết.html"
+            self.path = "/index.html"
         return http.server.SimpleHTTPRequestHandler.do_GET(self)
     
 Handler: object = CustomHandler

@@ -623,7 +623,7 @@ document.getElementById('search1').onclick = function () {searchforWeather();}
                 
                             /*// navigate to a URL
                             notification.addEventListener('click', () => {
-                                window.open('H:/Thời tiết.html', '_blank');
+                                window.open('H:/index.html', '_blank');
                             });*/
                             notification.addEventListener('click', () => {
                                 window.open('http://127.0.0.1:3000/Th%E1%BB%9Di%20ti%E1%BA%BFt.html', '_blank');

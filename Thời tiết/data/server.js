@@ -8,7 +8,7 @@ import path from 'path'
 
 // Định nghĩa route cho trang chính
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, this, 'H:/Thời tiết.html'));
+  res.sendFile(path.join(__dirname, this, 'H:/index.html'));
 });*/
 // Tạo máy chủ
 const hostname = '127.0.0.1';

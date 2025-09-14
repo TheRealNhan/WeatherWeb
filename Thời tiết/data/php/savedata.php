@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="refresh" content="0; url='../../../Thời tiết.html'" />
+        <meta http-equiv="refresh" content="0; url='../../../index.html'" />
         <title>Redirecting...</title>
     </head>
     <body>
